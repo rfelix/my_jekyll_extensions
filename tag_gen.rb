@@ -1,3 +1,5 @@
+# Code based on http://mikewest.org/2009/11/my-jekyll-fork
+
 module Jekyll
  
   class TagIndex < Page

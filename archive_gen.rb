@@ -1,5 +1,17 @@
+# Code based on http://mikewest.org/2009/11/my-jekyll-fork
+
 module Jekyll
   
+  module Filters
+    def to_month(input)
+      return Date::MONTHNAMES[input.to_i]
+    end
+
+    def to_month_abbr(input)
+      return Date::ABBR_MONTHNAMES[input.to_i]
+    end    
+  end
+
   class Archive < Page
     # Initialize a new Archive.
     #   +base+ is the String path to the <source>

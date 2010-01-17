@@ -2,14 +2,6 @@ module Jekyll
   
   module Filters
     
-    def to_month(input)
-      return Date::MONTHNAMES[input.to_i]
-    end
-
-    def to_month_abbr(input)
-      return Date::ABBR_MONTHNAMES[input.to_i]
-    end
-    
     def shorten(string, word_count)
       words = string.split(' ')
       return string if string.length <= word_count
