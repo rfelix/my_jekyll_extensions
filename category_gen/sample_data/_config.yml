@@ -1,0 +1,4 @@
+# Change the dir the individual category files are output to
+category_dir: topics # Default is categories
+# Title to be used when generating the individual category html files prefixed to category name
+category_title_prefix: "Topics &raquo; "

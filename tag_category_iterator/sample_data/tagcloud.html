@@ -1,0 +1,12 @@
+---
+layout: page
+title: Tags
+---
+
+<h1> Tags </h1>
+<ul>
+{% for tag in site.iterable.tags %}
+  <a style="font-size: {{ tag.posts | size | times:1.5 | plus: 10 }}px" href="{{site.baseurl}}/tags/{{tag.name}}">
+    {{ tag.name }}</a>{% if forloop.last == false %},&nbsp;{% endif %}
+{% endfor %}
+</ul>
