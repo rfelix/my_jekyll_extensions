@@ -1,4 +1,5 @@
 # Code based on http://mikewest.org/2009/11/my-jekyll-fork
+# forked from http://github.com/rfelix/my_jekyll_extensions
 
 module Jekyll
  
@@ -16,6 +17,17 @@ module Jekyll
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
       self.data['tag'] = tag
+      # MODIFIED : related tags list ( other tags of a post tagged by 'tag')
+      related = []
+      site.tags[tag].each {|post|
+		post.tags.each {|rel|
+		  if rel != tag
+			related.push(rel) if !(related.include?(rel))
+		  end
+		}
+	  }
+	  self.data['related'] = related if !related.empty?
+	  # END MODIFIED
       tag_title_prefix = site.config['tag_title_prefix'] || 'Tags: '
       self.data['title'] = "#{tag_title_prefix}#{tag}"      
     end
