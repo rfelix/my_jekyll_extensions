@@ -25,9 +25,9 @@ module Jekyll
 			related.push(rel) if !(related.include?(rel))
 		  end
 		}
-	  }
-	  self.data['related'] = related if !related.empty?
-	  # END MODIFIED
+      }      
+      self.data['related'] = related if !related.empty?
+      # END MODIFIED
       tag_title_prefix = site.config['tag_title_prefix'] || 'Tags: '
       self.data['title'] = "#{tag_title_prefix}#{tag}"      
     end
