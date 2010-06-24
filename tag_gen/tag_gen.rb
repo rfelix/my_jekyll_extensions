@@ -19,13 +19,17 @@ module Jekyll
       self.data['tag'] = tag
       # MODIFIED by http://github.com/danc/ 
       # related tags list ( other tags of any post tagged by 'tag')
-      related = []
-      site.tags[tag].each do |post|
-        post.tags.each do |rel| 
-          related.push(rel) unless rel == tag && related.include?(rel)
-        end
-      end      
-      self.data['related'] = related unless related.empty?
+      # this code will not be run unless _config.yml declares :
+      # related_tags: true
+      if @site.config['related_tags']
+        related = []
+        site.tags[tag].each do |post|
+          post.tags.each do |rel| 
+            related.push(rel) unless rel == tag && related.include?(rel)
+          end
+        end      
+        self.data['related'] = related unless related.empty?
+      end
       # END MODIFIED
       tag_title_prefix = site.config['tag_title_prefix'] || 'Tags: '
       self.data['title'] = "#{tag_title_prefix}#{tag}"      
