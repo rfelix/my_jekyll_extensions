@@ -17,16 +17,15 @@ module Jekyll
       self.process(@name)
       self.read_yaml(File.join(base, '_layouts'), 'tag_index.html')
       self.data['tag'] = tag
-      # MODIFIED : related tags list ( other tags of a post tagged by 'tag')
+      # MODIFIED by http://github.com/danc/ 
+      # related tags list ( other tags of any post tagged by 'tag')
       related = []
-      site.tags[tag].each {|post|
-		post.tags.each {|rel|
-		  if rel != tag
-			related.push(rel) if !(related.include?(rel))
-		  end
-		}
-      }      
-      self.data['related'] = related if !related.empty?
+      site.tags[tag].each do |post|
+		post.tags.each do |rel| 
+		  related.push(rel) unless rel == tag && related.include?(rel)
+		end
+      end      
+      self.data['related'] = related unless related.empty?
       # END MODIFIED
       tag_title_prefix = site.config['tag_title_prefix'] || 'Tags: '
       self.data['title'] = "#{tag_title_prefix}#{tag}"      
