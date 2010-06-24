@@ -21,9 +21,9 @@ module Jekyll
       # related tags list ( other tags of any post tagged by 'tag')
       related = []
       site.tags[tag].each do |post|
-		post.tags.each do |rel| 
-		  related.push(rel) unless rel == tag && related.include?(rel)
-		end
+       	post.tags.each do |rel| 
+		  		related.push(rel) unless rel == tag && related.include?(rel)
+				end
       end      
       self.data['related'] = related unless related.empty?
       # END MODIFIED
