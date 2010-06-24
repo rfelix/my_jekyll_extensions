@@ -7,6 +7,7 @@ Each extension has a _sample_data/_ dir which contains example files and the dir
 Here's a quick explanation of each extension:
 * *archive_gen*: allows you to automatically generate archive pages for dates like 2010/, 2010/01/, and 2010/01/12 using files in <em>_layouts</em> to specify what each page will look like. <em>e.g. Posts for "January 2010":http://rfelix.com/2010/01</em>
 * *tag_gen*: allows you to automatically generate tag pages for each tag using files in <em>_layouts</em> to specify what each page will look like. <em>e.g. "Ruby":http://rfelix.com/tags/ruby</em>
+** Thanks to "danc":http://github.com/danc, *tag_gen* now also creates a list of related tags that can be used (seem tag_gen/sample directory)
 * *category_gen*: allows you to automatically generate category pages for each category using files in <em>_layouts</em> to specify what each page will look like. <em>e.g. "Programming":http://rfelix.com/topics/Programming</em>
 * *categories_in_posts*: folders created under <em>_posts/</em> will be considered as categories for the post files in them.
 * *tag_category_iterator*: allows you to iterate over all tags/categories and then iterate over the posts in those tags/categories. You can use this to automatically generate a tag cloud and a category page listing. <em>e.g. "Tag Cloud":http://rfelix.com/tags and "Topics Listing":http://rfelix.com/topics</em>
